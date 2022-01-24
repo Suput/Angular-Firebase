@@ -7,11 +7,7 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  userLogged = false;
-
-  constructor(public auth: AuthService) {
-    this.userLogged = auth.getLogged();
-  }
+  constructor(public auth: AuthService) {}
 
   logout() {
     this.auth.logout();
