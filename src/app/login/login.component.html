@@ -1,0 +1,64 @@
+<div>
+  <form [formGroup]="loginGroup" (ngSubmit)="login()">
+    <div>
+      <input
+        type="text"
+        placeholder="Введите почту"
+        formControlName="email"
+        (input)="checkLogin()"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          loginGroup.controls['email'].invalid &&
+          loginGroup.controls['email'].touched
+        "
+      >
+        Заполните почту
+      </div>
+    </div>
+
+    <div *ngIf="showpassword">
+      <input
+        type="text"
+        placeholder="Введите пароль"
+        formControlName="password"
+        (input)="checkPassword()"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          loginGroup.controls['password'].invalid &&
+          loginGroup.controls['password'].touched
+        "
+      >
+        Заполните пароль
+      </div>
+    </div>
+
+    <div *ngIf="showphone">
+      <input
+        type="text"
+        placeholder="Введите номер телефона"
+        formControlName="phone"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="
+          loginGroup.controls['phone'].invalid &&
+          loginGroup.controls['phone'].touched
+        "
+      >
+        Заполните номер телефона
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      [disabled]="!loginGroup.valid"
+      class="btn btn-outline-success"
+    >
+      Войти
+    </button>
+  </form>
+</div>
