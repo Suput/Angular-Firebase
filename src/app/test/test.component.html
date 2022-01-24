@@ -1,0 +1,16 @@
+<div>
+  <button (click)="getData()">Загрузка данных</button>
+</div>
+<div *ngFor="let user of people">
+  {{ user.username }}
+</div>
+
+<div>
+  <input type="number" placeholder="Id" [(ngModel)]="id" /><br />
+  <input type="text" placeholder="username" [(ngModel)]="username" /><br />
+  <input type="email" placeholder="email" [(ngModel)]="email" /><br />
+  <input type="password" placeholder="password" [(ngModel)]="password" /><br />
+  <input type="number" placeholder="rating" [(ngModel)]="rating" /><br />
+
+  <button (click)="addUser()">Добавить</button>
+</div>
