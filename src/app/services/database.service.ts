@@ -13,6 +13,16 @@ export interface MyUser {
   providedIn: 'root',
 })
 export class DatabaseService {
+  // Небольшое описание, какой должна быть ссылка на вашу базу данных в Firebase
+  //
+  // Во-первых, идём по пути https://console.firebase.google.com/
+  // Там ищем свой проект. И заходим (слева меню) во вкладку Realtime Database
+  // Нам сразу по центру экрана покажут ссылку на нашу базу данных
+  //
+  // Во-вторых, в конце добавляем 'data.json'. json показывает, что мы будем хранить json строки (или что объекты нужно преобразовывать в json)
+  // data нужна для названия базы данных
+  // Можно дать другое название (test/users/people/mydb/my-database), но '.json' добавить обязательно
+
   URL: string = '';
   constructor(private http: HttpClient) {}
 

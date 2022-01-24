@@ -18,9 +18,20 @@ export class TestComponent {
   getData() {
     this.databaseService.getData().subscribe(
       (data) => {
-        let users = data as MyUser[];
+        let users: MyUser[] = [];
+        for (let key in data) {
+          // Внутри 'data' хранится словарь, где есть какой-то ключ (firebase сам его придумывает; это рандомная строка)
+          // А значение - это собственно наш обхект.
+          //
+          // Record<string, MyUser>
+          // Record - это тип данных, аналогичных словарю (дословно "Запись")
+          // <type1, type2> - это тип ключа и тип значения по ключу
+          // type1 у нас это string, то есть ключом является строка
+          // type2 у нас это MyUser, то есть значением является наш тип данных с пользователем
+
+          users.push((data as Record<string, MyUser>)[key]);
+        }
         this.people = users;
-        console.log(users);
       },
       (error) => {
         console.log(error);
@@ -37,6 +48,5 @@ export class TestComponent {
       rating: this.rating,
     };
     this.databaseService.addData(user).subscribe();
-    this.getData();
   }
 }
