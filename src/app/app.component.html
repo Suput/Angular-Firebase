@@ -20,8 +20,12 @@
             <a class="nav-link" routerLink="home">Home</a>
           </div>
           <div *ngIf="auth.getLogged()">
-            <button class="btn btn-link" (click)="logout()">Logout</button>
-            <a class="nav-link" routerLink="account">Account</a>
+            <div>
+              <button class="btn btn-link" (click)="logout()">Logout</button>
+            </div>
+            <div>
+              <a class="nav-link" routerLink="account">Account</a>
+            </div>
           </div>
           <div *ngIf="!auth.getLogged()">
             <a class="nav-link" routerLink="login">Login</a>
@@ -29,11 +33,14 @@
           <div>
             <a class="nav-link" routerLink="about">About</a>
           </div>
+          <div>
+            <a class="nav-link" routerLink="donate">Donate</a>
+          </div>
         </div>
       </div>
     </div>
   </nav>
 </div>
-<div>
+<div class="container">
   <router-outlet></router-outlet>
 </div>

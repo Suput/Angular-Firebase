@@ -8,9 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { AboutComponent } from './about/about.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AccountComponent } from './account/account.component';
+import { DonateComponent } from './donate/donate.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LoginComponent, AboutComponent, AccountComponent],
+  declarations: [AppComponent, HomeComponent, LoginComponent, AboutComponent, AccountComponent, DonateComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],

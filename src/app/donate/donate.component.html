@@ -1,0 +1,43 @@
+<div>
+  <div class="progress" style="margin-top: 50px">
+    <div
+      class="progress-bar"
+      role="progressbar"
+      [style]="progressStyle"
+      [attr.aria-valuenow]="progress"
+      aria-valuemin="0"
+      aria-valuemax="100"
+    >
+      {{ progress | number: "1.0-0" }}%
+    </div>
+  </div>
+  <div style="margin-top: 50px">
+    <form [formGroup]="donateGroup" (ngSubmit)="donate()">
+      <div>
+        <input
+          type="number"
+          placeholder="Введите сумму"
+          formControlName="summ"
+          class="form-control"
+        />
+        <div
+          class="alert alert-danger"
+          *ngIf="
+            donateGroup.controls['summ'].invalid &&
+            donateGroup.controls['summ'].touched
+          "
+        >
+          Введите верную сумму
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        [disabled]="!donateGroup.valid"
+        class="btn btn-outline-success"
+      >
+        Пожертвовать
+      </button>
+    </form>
+  </div>
+</div>
